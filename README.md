@@ -13,6 +13,7 @@ Some tools that allows me to optimize routines. Such tools as parsers to csv, to
     | MqlRatesToCsv | MqlRates[] object , string relative_path , string filename , bool to_update : false (optional) | bool | Writes a csv file with the filename parameter, in a relative path |
     | GetSymbolAvailable | string[] empty_list , bool market_watch : false (Optional) // if you want only the symbols on your market_watch  | int // number of available symbols |  empty_list out will have all available string symbols  |
     | GetPeriodList | ENUM_TIMEFRAMES empty_lista[]   | void  |  empty_list out will have all available ENUM_TIMEFRAMES available by me. Rewrite this method to add new timeframes |
+    | GetPipsFromPrices | double price1 , double price2, string symbolname | int | It will return the number of pips between those two prices |
     
 ```mql5
 #include <mql5Utils/Utils.mqh>;
@@ -38,6 +39,11 @@ string all_symbols = "";
    ENUM_TIMEFRAMES timesframes[];
    Utils::GetPeriodList(timesframes);
 
+
+// Get Pips From two Prices
+
+Comment(Utils::GetPipsFromPrices(1.10630, 1.10326 , Symbol()));
+It will print 304
 ```
-    
+
    
